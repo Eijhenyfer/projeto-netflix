@@ -1,68 +1,105 @@
 /* Estilos inspirados na Netflix */
 
 body {
+    /* Fundo preto sólido */
     background-color: #000;
+    /* Cor do texto branca para contraste */
     color: #fff;
+    /* Define a fonte padrão da página */
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Remove espaçamento externo padrão do navegador */
     margin: 0;
+    /* Remove espaçamento interno padrão do navegador */
     padding: 0;
+    /* Ativa layout flexível para centralizar conteúdo */
     display: flex;
+    /* Centraliza itens horizontalmente no flexbox */
     justify-content: center;
+    /* Centraliza itens verticalmente no flexbox */
     align-items: center;
+    /* Define altura mínima igual à altura da viewport */
     min-height: 100vh;
 }
 
 main {
+    /* Alinha o texto ao centro */
     text-align: center;
+    /* Define largura máxima do conteúdo para melhor legibilidade */
     max-width: 1200px;
+    /* Adiciona espaçamento interno em todos os lados */
     padding: 20px;
 }
 
 h1 {
+    /* Define tamanho grande para o título (3 vezes o tamanho base) */
     font-size: 3rem;
+    /* Espaçamento abaixo do título */
     margin-bottom: 2rem;
+    /* Peso da fonte leve para estética moderna */
     font-weight: 300;
 }
 
 .profiles {
+    /* Ativa layout flexível para organizar os perfis em linha */
     display: flex;
+    /* Centraliza os itens horizontalmente */
     justify-content: center;
+    /* Define espaçamento entre os perfis */
     gap: 2rem;
+    /* Permite que os itens quebrem para próxima linha se necessário */
     flex-wrap: wrap;
 }
 
 .profile {
+    /* Remove o sublinhado do link */
     text-decoration: none;
+    /* Define cor do texto em branco */
     color: #fff;
+    /* Suaviza a transição da transformação por 0.3 segundos */
     transition: transform 0.3s ease;
 }
 
 .profile:hover {
+    /* Aumenta o tamanho do perfil em 10% quando o usuário passa o mouse */
     transform: scale(1.1);
 }
 
 figure {
+    /* Remove espaçamento externo padrão */
     margin: 0;
+    /* Ativa layout flexível para organizar elementos em coluna */
     display: flex;
+    /* Define direção dos itens como coluna (vertical) */
     flex-direction: column;
+    /* Centraliza os itens horizontalmente */
     align-items: center;
 }
 
 img {
+    /* Define largura da imagem */
     width: 150px;
+    /* Define altura da imagem */
     height: 150px;
+    /* Arredonda as bordas em 50% para criar forma circular */
     border-radius: 50%;
+    /* Garante que a imagem preencha o espaço sem distorcer */
     object-fit: cover;
+    /* Adiciona borda inicial transparente (será preenchida no hover) */
     border: 3px solid transparent;
+    /* Suaviza a transição da cor da borda por 0.3 segundos */
     transition: border-color 0.3s ease;
 }
 
 .profile:hover img {
+    /* Adiciona borda vermelha (cor Netflix) quando o mouse passa sobre o perfil */
     border-color: #e50914;
 }
 
 figcaption {
+    /* Adiciona espaçamento acima da legenda */
     margin-top: 1rem;
+    /* Define tamanho da fonte um pouco maior que o padrão */
     font-size: 1.2rem;
+    /* Peso da fonte normal (não negrito) */
     font-weight: 400;
 }
