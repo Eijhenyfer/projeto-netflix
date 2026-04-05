@@ -44,6 +44,26 @@ themeToggle.addEventListener('click', () => {
     applyTheme(newTheme);
 });
 
+function savePerfilAtivo(event) {
+    const profileLink = event.currentTarget;
+    const figure = profileLink.querySelector('figure');
+    if (!figure) return;
+
+    const img = figure.querySelector('img');
+    const caption = figure.querySelector('figcaption');
+    if (img && caption) {
+        localStorage.setItem('perfilAtivoNome', caption.textContent.trim());
+        localStorage.setItem('perfilAtivoImagem', img.src);
+    }
+}
+
+function initializeActiveProfileStorage() {
+    const profileLinks = document.querySelectorAll('.profile');
+    profileLinks.forEach(link => {
+        link.addEventListener('click', savePerfilAtivo);
+    });
+}
+
 // Monitora mudanças na preferência do sistema
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     // Só aplica a mudança do sistema se o usuário não salvou preferência
@@ -52,10 +72,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
     }
 });
 
-// Inicializa o tema quando o DOM está pronto
-document.addEventListener('DOMContentLoaded', initializeTheme);
+// Inicializa o tema e o salvamento de perfil quando o DOM está pronto
+document.addEventListener('DOMContentLoaded', () => {
+    initializeTheme();
+    initializeActiveProfileStorage();
+});
 
 // Se o script estiver carregado após o DOM estar pronto
 if (document.readyState !== 'loading') {
     initializeTheme();
+    initializeActiveProfileStorage();
 }
